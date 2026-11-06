@@ -1,0 +1,9 @@
+Execucao: 2026-11-05T19:36:57 (modo completo)
+Sistema: Windows 11 10.0 (amd64)
+Java: OpenJDK 64-Bit Server VM 27 (Oracle Corporation)
+Processadores logicos: 12
+Memoria RAM: 17,1 GB
+CPU: AMD Ryzen 5 5600 6-Core Processor
+Computador: ASUS System Product Name
+Windows: Microsoft Windows 11 Pro build 26200
+Topologia: cliente, servidor e emuladores na mesma maquina, via 127.0.0.1 (loopback)

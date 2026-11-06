@@ -1,0 +1,2 @@
+protocolo,condicao,n,bytes,intervalo_ms,recebidos,perdidos,perda_pct,fora_de_ordem,duplicados,rtt_media_ms,rtt_mediana_ms,rtt_dp_ms,rtt_p95_ms,rtt_max_ms,duracao_s,observacao
+UDP,captura3,1000,100,10,914,86,8.60,0,0,0.210,0.190,0.190,0.304,5.740,12.99,

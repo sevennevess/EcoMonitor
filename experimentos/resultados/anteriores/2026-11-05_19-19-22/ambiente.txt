@@ -1,0 +1,14 @@
+Execucao: 2026-11-05T19:11:48 (modo completo)
+Sistema: Windows 11 10.0 (amd64)
+Java: OpenJDK 64-Bit Server VM 27 (Oracle Corporation)
+Processadores logicos: 12
+Memoria RAM: 17,1 GB
+CPU: AMD Ryzen 5 5600 6-Core Processor
+Computador: No linha:1 caractere:63
++ ... = Get-CimInstance Win32_ComputerSystem; $($c.Manufacturer) $($c.Model ...
++                                                                ~~
+Token '$(' inesperado na express�o ou instru��o.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnexpectedToken
+Windows: Microsoft Windows 11 Pro build 26200
+Topologia: cliente, servidor e emuladores na mesma maquina, via 127.0.0.1 (loopback)

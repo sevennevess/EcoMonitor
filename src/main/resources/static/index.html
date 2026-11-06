@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoMonitor</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <!-- Chart.js servido pelo proprio servidor (webjar no pom.xml): o painel funciona sem internet -->
+  <script src="/webjars/chart.js/4.4.7/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header class="topo">
+    <h1>🌿 EcoMonitor</h1>
+    <div class="topo-direita">
+      <span id="usuario" class="usuario"></span>
+      <span id="status-ws" class="selo selo-off">desconectado</span>
+      <button id="btn-sair" type="button" class="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="grade-3" id="cartoes"></section>
+    <section class="grade-3" id="graficos"></section>
+
+    <section class="duas-colunas">
+      <div class="painel">
+        <h2>Sensores</h2>
+        <div class="tabela-rolavel">
+          <table id="tabela-sensores">
+            <thead>
+              <tr><th>ID</th><th>Nome</th><th>Mede</th><th>Status</th><th>Última comunicação</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="painel">
+        <h2>Alertas</h2>
+        <p id="sem-alertas" class="msg">Nenhum alerta registrado.</p>
+        <ul id="lista-alertas"></ul>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>Histórico de medições</h2>
+      <form id="form-historico" class="filtros">
+        <label>Sensor
+          <select id="f-sensor"><option value="">Todos</option></select>
+        </label>
+        <label>Tipo
+          <select id="f-tipo">
+            <option value="">Todos</option>
+            <option value="TEMPERATURA">Temperatura</option>
+            <option value="UMIDADE">Umidade</option>
+            <option value="QUALIDADE_AR">Qualidade do ar</option>
+          </select>
+        </label>
+        <label>De <input type="datetime-local" id="f-inicio"></label>
+        <label>Até <input type="datetime-local" id="f-fim"></label>
+        <label>Limite <input type="number" id="f-limite" value="100" min="1" max="1000"></label>
+        <button type="submit">Consultar</button>
+        <span id="msg-historico" class="msg"></span>
+      </form>
+      <div class="tabela-rolavel">
+        <table id="tabela-historico">
+          <thead>
+            <tr><th>Sensor</th><th>Tipo</th><th>Valor</th><th>Unidade</th><th>Data/hora</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>Limites de alerta</h2>
+      <table id="tabela-limites">
+        <thead>
+          <tr><th>Indicador</th><th>Alerta quando for</th><th>Limite</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p class="msg">Limites ilustrativos, não são recomendações ambientais oficiais.
+        <span id="msg-limites"></span></p>
+    </section>
+  </main>
+
+  <footer class="rodape">Todos os dados exibidos são gerados por sensores simulados.</footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

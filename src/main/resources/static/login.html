@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoMonitor — Entrar</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="painel login-caixa">
+    <h2>🌿 EcoMonitor</h2>
+    <form id="form-login">
+      <label>Usuário <input id="usuario" autocomplete="username" required></label>
+      <label>Senha <input id="senha" type="password" autocomplete="current-password" required></label>
+      <button type="submit">Entrar</button>
+      <p id="erro" class="msg"></p>
+    </form>
+  </div>
+  <script>
+    document.getElementById("form-login").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const erro = document.getElementById("erro");
+      erro.textContent = "";
+      try {
+        const resposta = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            versao: "1.0",
+            tipoMensagem: "LOGIN",
+            usuario: document.getElementById("usuario").value,
+            senha: document.getElementById("senha").value
+          })
+        });
+        const corpo = await resposta.json().catch(() => null);
+        if (!resposta.ok) {
+          erro.textContent = corpo?.mensagem ?? "Falha no login";
+          return;
+        }
+        sessionStorage.setItem("ecomonitor.sessao",
+          JSON.stringify({ token: corpo.token, usuario: corpo.usuario, papel: corpo.papel }));
+        location.href = "/";
+      } catch (ex) {
+        erro.textContent = "Servidor indisponível";
+      }
+    });
+  </script>
+</body>
+</html>

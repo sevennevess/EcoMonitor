@@ -1,0 +1,2 @@
+experimento,condicao,parametro,n,media,mediana,desvio_padrao,min,max,p95,observacao,data_hora
+TRANSPORTE,captura3,UDP_1000msg_100B_rtt_ms,914,0.210,0.190,0.190,0.125,5.740,0.304,perdidos=86 perda_pct=8.60 fora_de_ordem=0 duplicados=0 ,2026-11-05T21:27:17
